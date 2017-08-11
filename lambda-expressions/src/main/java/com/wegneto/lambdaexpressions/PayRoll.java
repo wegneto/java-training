@@ -5,13 +5,9 @@ import java.util.List;
 
 import com.github.javafaker.Faker;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
-public class App {
+public class PayRoll {
 	
-	public static void main(String[] args) {
+	public List<Employee> getEmployees(Condition<Employee> condition) {
 		Faker faker = new Faker();
 		
 		List<Employee> employees = new ArrayList<Employee>() {{
@@ -21,19 +17,15 @@ public class App {
 			add(new Employee(faker.name().fullName(), faker.number().randomDouble(2, 500, 1000)));
 		}};
 		
-		employees.forEach(e -> System.out.println(e.getName() + ": " + e.getSalary()));
-		
-		System.out.println("=============");
-		
 		List<Employee> filtered = new ArrayList<>();
 		
 		employees.forEach(e -> {
-			if (e.getSalary() > 600F) {
+			if (condition.test(e) ) {
 				filtered.add(e);
 			}
 		});
-
-		filtered.forEach(f-> System.out.println(f.getName() + ": " + f.getSalary()));
 		
+		return filtered;
 	}
+
 }
