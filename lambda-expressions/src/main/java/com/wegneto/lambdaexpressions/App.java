@@ -22,11 +22,26 @@ public class App {
 		}};
 		
 		employees.forEach(e -> System.out.println(e.getName() + ": " + e.getSalary()));
-	}
-}
+		
+		System.out.println("=============");
+		
+		List<Employee> filtered = new ArrayList<>();
 
-@AllArgsConstructor
-class Employee {
-	@Getter @Setter private String name;
-	@Getter @Setter private Double salary;
+		for (Employee e : employees) {
+			if (e.getSalary() > 600F) {
+				filtered.add(e);
+			}
+		} 
+		
+		for (Employee e : filtered) {
+			System.out.println(e.getName());
+		} 
+		
+	}
+	
+	@AllArgsConstructor
+	static class Employee {
+		@Getter @Setter private String name;
+		@Getter @Setter private Double salary;
+	}
 }
