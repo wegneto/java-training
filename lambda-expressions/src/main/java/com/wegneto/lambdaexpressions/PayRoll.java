@@ -27,5 +27,4 @@ public class PayRoll {
 		
 		return filtered;
 	}
-
 }

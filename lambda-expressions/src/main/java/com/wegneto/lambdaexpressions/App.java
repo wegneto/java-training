@@ -34,6 +34,5 @@ public class App {
 		});
 
 		filtered.forEach(f-> System.out.println(f.getName() + ": " + f.getSalary()));
-		
 	}
 }
