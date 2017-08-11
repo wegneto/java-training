@@ -26,16 +26,14 @@ public class App {
 		System.out.println("=============");
 		
 		List<Employee> filtered = new ArrayList<>();
-
-		for (Employee e : employees) {
+		
+		employees.forEach(e -> {
 			if (e.getSalary() > 600F) {
 				filtered.add(e);
 			}
-		} 
-		
-		for (Employee e : filtered) {
-			System.out.println(e.getName());
-		} 
+		});
+
+		filtered.forEach(f-> System.out.println(f.getName() + ": " + f.getSalary()));
 		
 	}
 	
