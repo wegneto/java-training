@@ -14,6 +14,8 @@ public class App {
 	public static void main(String[] args) {
 		Faker faker = new Faker();
 		
+		System.out.println(faker.name().username());
+		
 		List<Employee> employees = new ArrayList<Employee>() {{
 			add(new Employee(faker.name().fullName(), faker.number().randomDouble(2, 500, 1000)));
 			add(new Employee(faker.name().fullName(), faker.number().randomDouble(2, 500, 1000)));
