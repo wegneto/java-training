@@ -5,11 +5,9 @@ import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 
 public class PrimitiveProblem {
 
@@ -39,11 +37,8 @@ public class PrimitiveProblem {
 				boolean found = true;
 				for (Integer factor : primeDivisors) {
 					int power = S / factor;
-					int e = 1;
-					for (int i = 0; i < power; i++) {
-						e = ((e * g) % p);
-					}
-					if (e == 1) {
+					if (BigInteger.valueOf(g).modPow(BigInteger.valueOf(power), BigInteger.valueOf(p))
+							.equals(BigInteger.ONE)) {
 						found = false;
 						break;
 					}
@@ -74,7 +69,6 @@ public class PrimitiveProblem {
 		}
 		for (int i = 2; i <= m; i++) {
 			boolean notPrimeRoot = false;
-			Set<Integer> reminder = new HashSet<>();
 			for (Map.Entry<Integer, Integer> map : primeFactor.entrySet()) {
 				if (BigInteger.valueOf(i).modPow(BigInteger.valueOf(map.getValue()), BigInteger.valueOf(p))
 						.equals(BigInteger.ONE))
