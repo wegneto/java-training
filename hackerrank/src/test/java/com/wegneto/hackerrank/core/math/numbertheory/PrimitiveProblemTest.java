@@ -5,14 +5,14 @@ import org.junit.Test;
 
 public class PrimitiveProblemTest {
 
-	//@Test
+	@Test
 	public void test() {
 		PrimitiveProblem primitiveProblem = new PrimitiveProblem();
 		String result = primitiveProblem.solution(7);
 		Assert.assertEquals("3 2", result);
 	}
 	
-	//@Test
+	@Test
 	public void test2() {
 		PrimitiveProblem primitiveProblem = new PrimitiveProblem();
 		String result = primitiveProblem.solution(2729);
