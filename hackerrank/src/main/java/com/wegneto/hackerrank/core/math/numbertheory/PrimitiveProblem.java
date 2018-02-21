@@ -8,8 +8,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 public class PrimitiveProblem {
+	
+	public void solveProblem(int primeNumber) {
+		Set<Integer> primeDivisors = findPrimeDivisors(primeNumber - 1);
+	}
+	
+	
+	
+	private Set<Integer> findPrimeDivisors(int number) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 	public String solution(int p) {
 		int min = 0;
@@ -58,8 +72,10 @@ public class PrimitiveProblem {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int p = in.nextInt();
+		
 		int m = p - 1;
 		int primeRoot = 0;
+		
 		Map<Integer, Integer> primeFactor = getPrimeFactor(m);
 		BigDecimal totalNumberOfPrimitiveRoots = BigDecimal.valueOf(m);
 		for (Map.Entry<Integer, Integer> map : primeFactor.entrySet()) {
@@ -67,6 +83,7 @@ public class PrimitiveProblem {
 					.subtract(BigDecimal.ONE.divide(BigDecimal.valueOf(map.getKey()), 2, RoundingMode.HALF_UP)));
 			primeFactor.put(map.getKey(), m / map.getKey());
 		}
+		
 		for (int i = 2; i <= m; i++) {
 			boolean notPrimeRoot = false;
 			for (Map.Entry<Integer, Integer> map : primeFactor.entrySet()) {
@@ -79,6 +96,7 @@ public class PrimitiveProblem {
 				break;
 			}
 		}
+		
 		System.out.println(primeRoot + " " + totalNumberOfPrimitiveRoots.intValue());
 	}
 
@@ -96,8 +114,10 @@ public class PrimitiveProblem {
 			}
 		}
 
-		if (p > 2)
-			insertToMap(p, map);
+		if (p > 2) {
+			insertToMap(p, map);			
+		}
+		
 		return map;
 	}
 
