@@ -1,132 +1,72 @@
 package com.wegneto.hackerrank.core.math.numbertheory;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class PrimitiveProblem {
 	
-	public void solveProblem(int primeNumber) {
-		Set<Integer> primeDivisors = findPrimeDivisors(primeNumber - 1);
-	}
-	
-	
-	
-	private Set<Integer> findPrimeDivisors(int number) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	public String solution(int p) {
-		int min = 0;
-		final int S = (p - 1);
-		int totalNumberOfPrimitiveRoots = S;
-		List<Integer> primeDivisors = new ArrayList<>();
-
-		int number = S;
-		for (int i = 2; i <= number; i++) {
-			boolean isFactor = false;
-			while (number % i == 0) {
-				number /= i;
-				isFactor = true;
-			}
-			if (isFactor) {
-				Double div = (double) 1 / i;
-				Double sub = (double) 1 - div;
-				totalNumberOfPrimitiveRoots *= sub;
-				primeDivisors.add(i);
-			}
+	public String solveProblem(int primeNumber) {
+		final int s = primeNumber - 1;
+		int primeFactor = 0;
+		int totalNumberOfPrimitiveRoots = s;
+		
+		Set<Integer> primeDivisors = findPrimeFactors(s);
+		for (Integer factor : primeDivisors) {
+			Double div = (double) 1 / factor;
+			Double sub = (double) 1 - div;
+			totalNumberOfPrimitiveRoots *= sub;
 		}
-
-		for (int g = 2; g < S; g++) {
+		
+		for (int g = 2; g < s; g++) {
 			if (g % Math.sqrt(g) != 0) {
-				boolean found = true;
+				boolean isPrimeFactor = true;
 				for (Integer factor : primeDivisors) {
-					int power = S / factor;
-					if (BigInteger.valueOf(g).modPow(BigInteger.valueOf(power), BigInteger.valueOf(p))
-							.equals(BigInteger.ONE)) {
-						found = false;
+					int power = s / factor;
+					if (BigInteger.valueOf(g).modPow(BigInteger.valueOf(power), BigInteger.valueOf(primeNumber)).equals(BigInteger.ONE)) {
+						isPrimeFactor = false;
 						break;
 					}
 				}
 
-				if (found) {
-					min = g;
+				if (isPrimeFactor) {
+					primeFactor = g;
 					break;
 				}
 			}
 		}
+		
+		return primeFactor + " " + totalNumberOfPrimitiveRoots;
+	}
+	
+	private Set<Integer> findPrimeFactors(int number) {
+		Set<Integer> set = new TreeSet<>();
+		while (number % 2 == 0) {
+			set.add(2);
+			number /= 2;
+		}
 
-		System.out.println(min + " " + totalNumberOfPrimitiveRoots);
-		return min + " " + totalNumberOfPrimitiveRoots;
+		for (int i = 3; i <= Math.sqrt(number); i += 2) {
+			while (number % i == 0) {
+				set.add(i);
+				number /= i;
+			}
+		}
+
+		if (number > 2) {
+			set.add(number);
+		}
+		
+		return set;
 	}
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		int p = in.nextInt();
-		
-		int m = p - 1;
-		int primeRoot = 0;
-		
-		Map<Integer, Integer> primeFactor = getPrimeFactor(m);
-		BigDecimal totalNumberOfPrimitiveRoots = BigDecimal.valueOf(m);
-		for (Map.Entry<Integer, Integer> map : primeFactor.entrySet()) {
-			totalNumberOfPrimitiveRoots = totalNumberOfPrimitiveRoots.multiply(BigDecimal.ONE
-					.subtract(BigDecimal.ONE.divide(BigDecimal.valueOf(map.getKey()), 2, RoundingMode.HALF_UP)));
-			primeFactor.put(map.getKey(), m / map.getKey());
-		}
-		
-		for (int i = 2; i <= m; i++) {
-			boolean notPrimeRoot = false;
-			for (Map.Entry<Integer, Integer> map : primeFactor.entrySet()) {
-				if (BigInteger.valueOf(i).modPow(BigInteger.valueOf(map.getValue()), BigInteger.valueOf(p))
-						.equals(BigInteger.ONE))
-					notPrimeRoot = true;
-			}
-			if (!notPrimeRoot) {
-				primeRoot = i;
-				break;
-			}
-		}
-		
-		System.out.println(primeRoot + " " + totalNumberOfPrimitiveRoots.intValue());
-	}
-
-	private static Map<Integer, Integer> getPrimeFactor(int p) {
-		Map<Integer, Integer> map = new HashMap<>();
-		while (p % 2 == 0) {
-			insertToMap(2, map);
-			p /= 2;
-		}
-
-		for (int i = 3; i <= Math.sqrt(p); i += 2) {
-			while (p % i == 0) {
-				insertToMap(i, map);
-				p /= i;
-			}
-		}
-
-		if (p > 2) {
-			insertToMap(p, map);			
-		}
-		
-		return map;
-	}
-
-	private static void insertToMap(int i, Map<Integer, Integer> map) {
-		if (map.get(i) != null) {
-			map.put(i, map.get(i) + 1);
-		} else {
-			map.put(i, 1);
-		}
+        int p = in.nextInt();
+        
+		PrimitiveProblem solution = new PrimitiveProblem();
+		System.out.println(solution.solveProblem(p));
 	}
 
 }
