@@ -13,7 +13,6 @@ public class DateAndTime {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("EEEEE");
 		String dayOfWeek = dateFormat.format(calendar.getTime());
 		return dayOfWeek.toUpperCase();
-
 	}
 
 	public static void main(String[] args) {
