@@ -5,16 +5,8 @@ import java.util.Scanner;
 public class StringReverse {
 	
 	public static String reverse(String str) {
-		int last = str.length() - 1;
-		int limit = last / 2;
-		
-		for(int i = 0; i < limit; i++) {
-			if (str.charAt(i) != str.charAt(last - i)) {
-				return "No";
-			}
-		}
-		
-		return "Yes";
+		String reverse = new StringBuilder(str).reverse().toString();
+		return str.equalsIgnoreCase(reverse) ? "Yes" : "No";
 	}
 
 	public static void main(String[] args) {
