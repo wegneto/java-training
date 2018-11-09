@@ -1,8 +1,7 @@
 package com.wegneto;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class StringTest {
@@ -12,7 +11,7 @@ class StringTest {
 		int actualLength = "ABCD".length();
 		int expectedLength = 4;
 		
-		Assertions.assertEquals(expectedLength, actualLength);
+		assertEquals(expectedLength, actualLength);
 	}
 	
 	@Test
@@ -24,10 +23,7 @@ class StringTest {
 	
 	@Test
 	void contains() {
-		String str = "abcdefgh";
-		boolean result = str.contains("ijk");
-		
-		assertEquals(false, result);
+		assertFalse("abcdefgh".contains("ijk"));
 	}
 
 }
