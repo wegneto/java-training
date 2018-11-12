@@ -2,12 +2,24 @@ package com.wegneto;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
 class StringTest {
+	
+	@BeforeAll
+	static void beforeAll() {
+		System.out.println("Doing some generic initialization..");
+	}
+	
+	@AfterAll
+	static void afterAll() {
+		System.out.println("Doing some generic clean up..");
+	}
 	
 	@BeforeEach
 	void beforeEach(TestInfo info) {
