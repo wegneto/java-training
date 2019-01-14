@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
@@ -18,6 +19,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class StringTest {
+	
+	private String str;
 
 	@BeforeAll
 	static void beforeAll() {
@@ -105,6 +108,26 @@ class StringTest {
 				System.out.println(j);
 			}
 		});
+	}
+	
+	@Nested
+	class EmptyStringTests {
+		
+		@BeforeEach
+		void setToEmpty() {
+			str = "";
+		}
+		
+		@Test
+		void lengthIsZero() {
+			assertEquals(0,  str.length());
+		}
+		
+		@Test
+		void uppercaseIsEmpty() {
+			assertEquals("",  str.toUpperCase());
+		}
+		
 	}
 
 }
