@@ -10,6 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 class StringTest {
@@ -71,12 +72,23 @@ class StringTest {
 			str.length();
 		});
 	}
-	
+
 	@ParameterizedTest
-	@ValueSource(strings = {"ABCD", "ABC", "A", "DEF"})
+	@ValueSource(strings = { "ABCD", "ABC", "A", "DEF" })
 	void lengthGreaterThanZero(String str) {
-		assertTrue(str.length()>0);
+		assertTrue(str.length() > 0);
+	}
+
+	@ParameterizedTest
+	@CsvSource(value = { "abcd, ABCD", "abc, ABC", "'',''", "def, DEF" })
+	void uppercase(String word, String capitalizedWord) {
+		assertEquals(capitalizedWord, word.toUpperCase());
 	}
 	
+	@ParameterizedTest
+	@CsvSource(value = { "abcd, 4", "abc, 3", "'',0", "def, 3" })
+	void length(String word, int expectedLenght) {
+		assertEquals(expectedLenght, word.length());
+	}
 
 }
