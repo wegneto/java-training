@@ -14,10 +14,13 @@ public class ShopApp {
         System.out.println("Hello " + c1.name + ".");
 
         Clothing item1 = new Clothing();
+        Clothing item2 = new Clothing();
+
+        Clothing[] items = {item1, item2};
+
         item1.description = "Blue Jacket";
         item1.price = 20.9;
 
-        Clothing item2 = new Clothing();
         item2.description = "Orange T-Shirt";
         item2.price = 10.5;
         item2.size = "S";
