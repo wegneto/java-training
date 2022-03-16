@@ -25,10 +25,10 @@ public class ShopApp {
         item2.price = 10.5;
         item2.size = "S";
 
-        System.out.println("Item 1: " + item1.description + ", " + item1.price + ", " + item1.size);
-        System.out.println("Item 2: " + item2.description + ", " + item2.price + ", " + item2.size);
-
-        total = (item1.price + item2.price * 2) * (1 + tax);
+        for (Clothing item : items) {
+            System.out.println("Item: " + item.description + ", " + item.price + ", " + item.size);
+            total += ((item.price) * (1 + tax));
+        }
 
         System.out.println("Total is: " + total);
 
@@ -44,7 +44,7 @@ public class ShopApp {
                 c1.size = "L";
                 break;
             default:
-                c1.size = "S";
+                c1.size = "X";
         }
     }
 }
