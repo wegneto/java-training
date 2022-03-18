@@ -4,21 +4,51 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        /*String[] testCases = {"XXXOO__O_", "XOXOXOXXO", "XOOOXOXXO", "XOXOOXXXO", "XO_OOX_X_", "XO_XO_XOX", "_O_X__X_X", "_OOOO_X_X"};
-
-        for (String testCase : testCases) {
-            char[][] board = fillBoard(testCase);
-            printBoard(board);
-            printResult(board);
-        }*/
-
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter cells: ");
         String input = scanner.nextLine();
-
         char[][] board = fillBoard(input);
         printBoard(board);
-        printResult(board);
+
+        boolean isInputValid = false;
+        int inputX = 0;
+        int inputY = 0;
+        while (!isInputValid) {
+            System.out.print("Enter the coordinates: ");
+            try {
+                inputX = scanner.nextInt();
+                inputY = scanner.nextInt();
+
+                inputX--;
+                inputY--;
+
+                isInputValid = validateInput(board, inputX, inputY);
+            } catch (Exception e) {
+                scanner.nextLine();
+                System.out.println("You should enter numbers!");
+            }
+        }
+
+        addPlayerMove(board, inputX, inputY, 'X');
+        printBoard(board);
+
+        //printResult(board);
+    }
+
+    private static void addPlayerMove(char[][] board, int inputX, int inputY, char value) {
+        board[inputX][inputY] = value;
+    }
+
+    private static boolean validateInput(char[][] board, int inputX, int inputY) {
+        if (inputX < 0 || inputX > 3 || inputY < 0 || inputY> 3 ) {
+            System.out.println("Coordinates should be from 1 to 3!");
+            return false;
+        } else if (board[inputX][inputY] != ' ') {
+            System.out.println("This cell is occupied! Choose another one!");
+            return false;
+        }
+
+        return true;
     }
 
     private static void printResult(char[][] board) {
@@ -116,7 +146,7 @@ public class Main {
         int x = 0, y = 0;
 
         for (int i = 0; i < input.length(); i++) {
-            board[x][y] = input.charAt(i);
+            board[x][y] = input.charAt(i) == '_' ? ' ' : input.charAt(i);
 
             if ((i + 1) % 3 == 0) {
                 x++;
