@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TicTacToeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-18T16:07:35" hostname="wegmac.local" time="0.404">
+<testsuite name="TicTacToeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-18T16:13:03" hostname="wegmac.local" time="0.4">
   <properties/>
-  <testcase name="start" classname="TicTacToeTest" time="0.404"/>
+  <testcase name="start" classname="TicTacToeTest" time="0.4"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 Enter cells: > _XXOO_OX_

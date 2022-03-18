@@ -143,17 +143,9 @@ public class Main {
 
     private static char[][] fillBoard(String input) {
         char[][] board = new char[3][3];
-        int x = 0, y = 0;
 
         for (int i = 0; i < input.length(); i++) {
-            board[x][y] = input.charAt(i) == '_' ? ' ' : input.charAt(i);
-
-            if ((i + 1) % 3 == 0) {
-                x++;
-                y = 0;
-            } else {
-                y++;
-            }
+            board[i/3][i%3] = input.charAt(i) == '_' ? ' ' : input.charAt(i);
         }
 
         return board;
