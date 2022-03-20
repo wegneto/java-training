@@ -23,6 +23,9 @@
       <module name="Simple_Tic-Tac-Toe.Topics-Relational_operators-Theory.main" target="11" />
       <module name="Simple_Tic-Tac-Toe.Topics-The_for-loop-Numbers_divisible_by_six.main" target="11" />
       <module name="Simple_Tic-Tac-Toe.Topics-The_for-loop-Theory.main" target="11" />
+      <module name="Simple_Tic-Tac-Toe.Topics-The_while_and_do-while_loops-Collatz_conjecture.main" target="11" />
+      <module name="Simple_Tic-Tac-Toe.Topics-The_while_and_do-while_loops-The_smallest_value.main" target="11" />
+      <module name="Simple_Tic-Tac-Toe.Topics-The_while_and_do-while_loops-Theory.main" target="11" />
       <module name="Simple_Tic-Tac-Toe.util.main" target="11" />
     </bytecodeTargetLevel>
   </component>
