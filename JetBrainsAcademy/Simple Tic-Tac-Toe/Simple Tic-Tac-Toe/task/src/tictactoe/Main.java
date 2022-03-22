@@ -5,15 +5,15 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter cells: ");
-        String input = scanner.nextLine();
-        char[][] board = fillBoard(input);
-        printBoard(board);
-
-        boolean isInputValid = false;
+        char[][] grid = new char[3][3];
+        String result = null;
         int inputX = 0;
         int inputY = 0;
-        while (!isInputValid) {
+        char player = 'X';
+
+        printGrid(grid);
+
+        while (result == null) {
             System.out.print("Enter the coordinates: ");
             try {
                 inputX = scanner.nextInt();
@@ -22,17 +22,23 @@ public class Main {
                 inputX--;
                 inputY--;
 
-                isInputValid = validateInput(board, inputX, inputY);
+                if (validateInput(grid, inputX, inputY)) {
+                    addPlayerMove(grid, inputX, inputY, player);
+                    printGrid(grid);
+                    if (player == 'X') {
+                        player = 'O';
+                    } else {
+                        player = 'X';
+                    }
+                    result = evaluate(grid);
+                }
             } catch (Exception e) {
                 scanner.nextLine();
                 System.out.println("You should enter numbers!");
             }
         }
 
-        addPlayerMove(board, inputX, inputY, 'X');
-        printBoard(board);
-
-        //printResult(board);
+        System.out.println(result);
     }
 
     private static void addPlayerMove(char[][] board, int inputX, int inputY, char value) {
@@ -40,10 +46,10 @@ public class Main {
     }
 
     private static boolean validateInput(char[][] board, int inputX, int inputY) {
-        if (inputX < 0 || inputX > 3 || inputY < 0 || inputY> 3 ) {
+        if (inputX < 0 || inputX > 2 || inputY < 0 || inputY> 2 ) {
             System.out.println("Coordinates should be from 1 to 3!");
             return false;
-        } else if (board[inputX][inputY] != ' ') {
+        } else if (board[inputX][inputY] != Character.MIN_VALUE) {
             System.out.println("This cell is occupied! Choose another one!");
             return false;
         }
@@ -51,7 +57,7 @@ public class Main {
         return true;
     }
 
-    private static void printResult(char[][] board) {
+    private static String evaluate(char[][] grid) {
         final int xVictory = 'X' + 'X' + 'X';
         final int oVictory = 'O' + 'O' + 'O';
 
@@ -65,9 +71,9 @@ public class Main {
         int[] columns = new int[3];
         int[] diagonals = new int[2];
 
-        for (int x = 0; x < board.length; x++) {
-            for (int y = 0; y < board[x].length; y++) {
-                char value = board[x][y];
+        for (int x = 0; x < grid.length; x++) {
+            for (int y = 0; y < grid[x].length; y++) {
+                char value = grid[x][y];
 
                 if (value == 'X') {
                     countX++;
@@ -113,26 +119,27 @@ public class Main {
         }
 
         if (xWins && oWins || (Math.abs(countX - countO) > 1)) {
-            System.out.println("Impossible");
+            return "Impossible";
         } else if (xWins) {
-            System.out.println("X wins");
+            return "X wins";
         } else if (oWins) {
-            System.out.println("O wins");
+            return "O wins";
         } else if (countO + countX == 9) {
-            System.out.println("Draw");
-        } else {
-            System.out.println("Game not finished");
+            return "Draw";
         }
+
+        return null;
     }
 
-    private static void printBoard(char[][] board) {
+    private static void printGrid(char[][] board) {
         System.out.println("---------");
 
         for (int x = 0; x < board.length; x++) {
             System.out.print("| ");
 
             for (int y = 0; y < board[x].length; y++) {
-                System.out.print(board[x][y] + " ");
+                char value = board[x][y] == Character.MIN_VALUE ? ' ' :  board[x][y];
+                System.out.print(value + " ");
             }
 
             System.out.println("|");
