@@ -8,10 +8,5 @@ public class Main {
         // System.out.println("go!");
 
         System.out.println("go!");
-
-
-        for (int j = 0; j<=3; j++) {
-            System.out.println(j);
-        }
     }
 }
