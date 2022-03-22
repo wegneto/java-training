@@ -147,14 +147,4 @@ public class Main {
 
         System.out.println("---------");
     }
-
-    private static char[][] fillBoard(String input) {
-        char[][] board = new char[3][3];
-
-        for (int i = 0; i < input.length(); i++) {
-            board[i/3][i%3] = input.charAt(i) == '_' ? ' ' : input.charAt(i);
-        }
-
-        return board;
-    }
 }
