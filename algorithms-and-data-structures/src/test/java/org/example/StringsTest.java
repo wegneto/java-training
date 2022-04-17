@@ -55,4 +55,20 @@ public class StringsTest {
 
         assertEquals(2, actual);
     }
+
+    @Test
+    public void shouldReturnAnagramIsFalse() {
+        String str1 = "hello";
+        String str2 = "world";
+
+        assertFalse(new Strings().isAnagram(str1, str2));
+    }
+
+    @Test
+    public void shouldReturnAnagramIsTrue() {
+        String str1 = "restful";
+        String str2 = "fluster";
+
+        assertTrue(new Strings().isAnagram(str1, str2));
+    }
 }

@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Arrays;
+
 public class Strings {
 
     public String reverse(String original) {
@@ -30,5 +32,19 @@ public class Strings {
         }
 
         return count;
+    }
+
+    public boolean isAnagram(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        } else {
+            char[] anagram1 = str1.toCharArray();
+            char[] anagram2 = str2.toCharArray();
+
+            Arrays.sort(anagram1);
+            Arrays.sort(anagram2);
+
+            return Arrays.equals(anagram1, anagram2);
+        }
     }
 }
