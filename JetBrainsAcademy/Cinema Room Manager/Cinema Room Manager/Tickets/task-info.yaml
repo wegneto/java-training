@@ -300,6 +300,89 @@ files:
         }
     }
   learner_created: false
+- name: src/cinema/Seat.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class Seat {
+        private String value = "S";
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+    }
+  learner_created: true
+- name: src/cinema/Room.java
+  visible: true
+  text: |
+    package cinema;
+
+    public class Room {
+
+        private int rows;
+        private int seatsPerRow;
+
+        private Seat[][] seatMap;
+
+        public Room(int rows, int seatsPerRow) {
+            this.rows = rows;
+            this.seatsPerRow = seatsPerRow;
+
+            seatMap = new Seat[rows][seatsPerRow];
+
+            for (int i = 0; i < seatMap.length; i++) {
+                for (int j = 0; j < seatMap[i].length; j++) {
+                    seatMap[i][j] = new Seat();
+                }
+            }
+        }
+
+        public int calculateIncome() {
+            int income = rows * seatsPerRow * 10;
+
+            if (income > 600) {
+                income -= ((rows+1)/2) * seatsPerRow * 2;
+            }
+
+            return income;
+        }
+
+
+        @Override
+        public String toString() {
+            StringBuffer value = new StringBuffer();
+            for (int i = 0; i <= seatMap[0].length; i++) {
+                value.append((i == 0 ? " " : i) + " ");
+            }
+
+            value.append("\n");
+
+            for (int i = 0; i < seatMap.length; i++) {
+                value.append(i + 1 + " ");
+                for (int j = 0; j < seatMap[i].length; j++) {
+                    value.append(seatMap[i][j] + " ");
+                }
+
+                value.append("\n");
+            }
+
+
+            return value.toString();
+        }
+
+
+    }
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/11107#comment
 status: Unchecked
 record: -1
