@@ -15,4 +15,11 @@ public class ArrayChallengesTest {
         Assert.assertTrue(Arrays.equals(expected, new ArrayChallenges().reverse(arr1)));
     }
 
+    @Test
+    public void shouldFindTheSecondLargestNumberInArray() {
+        int[] arr = {1, 2, 7, 6, 4, 9, 12};
+
+        Assert.assertEquals(9, new ArrayChallenges().findSecondHighest(arr));
+    }
+
 }
