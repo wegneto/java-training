@@ -71,4 +71,5 @@ public class StringsTest {
 
         assertTrue(new Strings().isAnagram(str1, str2));
     }
+
 }
