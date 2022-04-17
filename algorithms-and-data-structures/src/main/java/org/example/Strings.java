@@ -20,4 +20,15 @@ public class Strings {
             return false;
         }
     }
+
+    public int countOccurrences(String str, char value) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == value) {
+                count++;
+            }
+        }
+
+        return count;
+    }
 }

@@ -35,4 +35,24 @@ public class StringsTest {
 
         assertFalse(strings.isPalindrome(str));
     }
+
+    @Test
+    public void shouldReturnZeroOccurrences() {
+        String str = "hello";
+        char value = 'a';
+
+        int actual = new Strings().countOccurrences(str, value);
+
+        assertEquals(0, actual);
+    }
+
+    @Test
+    public void shouldReturnTwoOccurrences() {
+        String str = "hello";
+        char value = 'l';
+
+        int actual = new Strings().countOccurrences(str, value);
+
+        assertEquals(2, actual);
+    }
 }
