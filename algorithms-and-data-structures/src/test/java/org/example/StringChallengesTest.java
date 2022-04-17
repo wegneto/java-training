@@ -4,16 +4,16 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class StringsTest {
+public class StringChallengesTest {
 
     @Test
     public void shouldReverseString() {
         String original = "hello";
         String expected = "olleh";
 
-        Strings strings = new Strings();
+        StringChallenges stringChallenges = new StringChallenges();
 
-        String actual = strings.reverse(original);
+        String actual = stringChallenges.reverse(original);
 
         assertEquals(expected, actual);
     }
@@ -22,18 +22,18 @@ public class StringsTest {
     public void shouldReturnPalindromeIsTrue() {
         String str = "tattarrattat";
 
-        Strings strings = new Strings();
+        StringChallenges stringChallenges = new StringChallenges();
 
-        assertTrue(strings.isPalindrome(str));
+        assertTrue(stringChallenges.isPalindrome(str));
     }
 
     @Test
     public void shouldReturnPalindromeIsFalse() {
         String str = "hello";
 
-        Strings strings = new Strings();
+        StringChallenges stringChallenges = new StringChallenges();
 
-        assertFalse(strings.isPalindrome(str));
+        assertFalse(stringChallenges.isPalindrome(str));
     }
 
     @Test
@@ -41,7 +41,7 @@ public class StringsTest {
         String str = "hello";
         char value = 'a';
 
-        int actual = new Strings().countOccurrences(str, value);
+        int actual = new StringChallenges().countOccurrences(str, value);
 
         assertEquals(0, actual);
     }
@@ -51,7 +51,7 @@ public class StringsTest {
         String str = "hello";
         char value = 'l';
 
-        int actual = new Strings().countOccurrences(str, value);
+        int actual = new StringChallenges().countOccurrences(str, value);
 
         assertEquals(2, actual);
     }
@@ -61,7 +61,7 @@ public class StringsTest {
         String str1 = "hello";
         String str2 = "world";
 
-        assertFalse(new Strings().isAnagram(str1, str2));
+        assertFalse(new StringChallenges().isAnagram(str1, str2));
     }
 
     @Test
@@ -69,7 +69,7 @@ public class StringsTest {
         String str1 = "restful";
         String str2 = "fluster";
 
-        assertTrue(new Strings().isAnagram(str1, str2));
+        assertTrue(new StringChallenges().isAnagram(str1, str2));
     }
 
 }

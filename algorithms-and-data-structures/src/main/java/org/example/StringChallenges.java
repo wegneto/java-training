@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Arrays;
 
-public class Strings {
+public class StringChallenges {
 
     public String reverse(String original) {
         String reverse = "";
@@ -66,7 +66,7 @@ public class Strings {
     }
 
     public static void main(String[] args) {
-        Strings strings = new Strings();
-        strings.countConsonantsAndVowels("hello");
+        StringChallenges stringChallenges = new StringChallenges();
+        stringChallenges.countConsonantsAndVowels("hello");
     }
 }
