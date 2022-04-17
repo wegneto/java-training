@@ -10,4 +10,14 @@ public class Strings {
 
         return reverse;
     }
+
+    public boolean isPalindrome(String str) {
+        String reverse = this.reverse(str);
+
+        if (str.equals(reverse)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -1,17 +1,11 @@
 package org.example;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
+import static org.junit.Assert.*;
+
 public class StringsTest {
-    /**
-     * Rigorous Test :-)
-     */
+
     @Test
     public void shouldReverseString() {
         String original = "hello";
@@ -22,5 +16,23 @@ public class StringsTest {
         String actual = strings.reverse(original);
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldReturnPalindromeIsTrue() {
+        String str = "tattarrattat";
+
+        Strings strings = new Strings();
+
+        assertTrue(strings.isPalindrome(str));
+    }
+
+    @Test
+    public void shouldReturnPalindromeIsFalse() {
+        String str = "hello";
+
+        Strings strings = new Strings();
+
+        assertFalse(strings.isPalindrome(str));
     }
 }
