@@ -3,6 +3,7 @@ package duke.choice;
 public class Customer {
     private String name;
     private String size;
+    private Clothing[] items;
 
     public String getName() {
         return name;
@@ -34,5 +35,22 @@ public class Customer {
             default:
                 setSize("XL");
         }
+    }
+
+    public Clothing[] getItems() {
+        return items;
+    }
+
+    public void setItems(Clothing[] items) {
+        this.items = items;
+    }
+
+    public double getTotalClothingCost() {
+        double total = 0.0;
+        for (Clothing item : getItems()) {
+            total += item.getPrice();
+        }
+
+        return total;
     }
 }

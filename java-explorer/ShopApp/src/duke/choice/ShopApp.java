@@ -3,8 +3,6 @@ package duke.choice;
 public class ShopApp {
 
     public static void main(String[] args) {
-        double total = 0.0;
-
         System.out.println("Welcome to Duke Choice Shop");
 
         Customer c1 = new Customer();
@@ -38,18 +36,12 @@ public class ShopApp {
 
         int measurement = 3;
         c1.setSize(measurement);
+        c1.setItems(items);
 
-        for (Clothing item : items) {
-            if (c1.getSize().equalsIgnoreCase(item.getSize())) {
-                System.out.println("Item: " + item.getDescription() + ", " + item.getPrice() + ", " + item.getSize());
-                total += item.getPrice();
-            }
-
-            if (total > 15) {
-                break;
-            }
+        for (Clothing item : c1.getItems()) {
+            System.out.println("Item: " + item.getDescription() + ", " + item.getPrice() + ", " + item.getSize());
         }
 
-        System.out.println("Total is: " + total);
+        System.out.println("Total: " + c1.getTotalClothingCost());
     }
 }
