@@ -28,13 +28,15 @@ public class Customer {
 
     public void setSize(int measurement) {
         switch (measurement) {
-            case 1, 2, 3:
+            case 1:
+            case 2:
+            case 3:
                 setSize("S");
                 break;
-            case 4, 5, 6:
+            case 4: case 5: case 6:
                 setSize("M");
                 break;
-            case 7, 8, 9:
+            case 7: case 8: case 9:
                 setSize("L");
                 break;
             default:
@@ -57,5 +59,23 @@ public class Customer {
         }
 
         return total;
+    }
+
+    public void printAveragePrice() {
+        int numberOfItems = 0;
+        int average = 0;
+        for (Clothing item : getItems()) {
+            if (item.getSize().equalsIgnoreCase("L")) {
+                numberOfItems++;
+                average += item.getPrice();
+            }
+        }
+
+        try {
+            average = numberOfItems == 0 ? 0 : (average / numberOfItems);
+            System.out.println("The average price is: " + average);
+        } catch (ArithmeticException e) {
+            System.out.println("Don't divide by 0");
+        }
     }
 }

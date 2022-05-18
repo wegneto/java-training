@@ -24,5 +24,6 @@ public class ShopApp {
         }
 
         System.out.println("Total: " + c1.getTotalClothingCost());
+        c1.printAveragePrice();
     }
 }
