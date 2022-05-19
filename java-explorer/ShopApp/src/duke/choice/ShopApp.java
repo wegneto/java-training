@@ -1,5 +1,7 @@
 package duke.choice;
 
+import java.util.Arrays;
+
 public class ShopApp {
 
     public static void main(String[] args) {
@@ -19,6 +21,7 @@ public class ShopApp {
         Clothing[] items = {item1, item2, item3, item4};
         c1.setItems(items);
 
+        Arrays.sort(c1.getItems());
         for (Clothing item : c1.getItems()) {
             System.out.println(item);
         }
