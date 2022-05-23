@@ -17,6 +17,13 @@ public class ItemList implements Handler {
     public void accept(ServerRequest serverRequest, ServerResponse serverResponse) {
         serverResponse.status(Http.Status.OK_200);
         serverResponse.headers().put("Content-Type", "text/plain; charset=UTF-8");
-        serverResponse.send(items.toString());
+
+        StringBuilder result = new StringBuilder();
+        for (Clothing item : items) {
+            result.append(item);
+            result.append("\n");
+        }
+
+        serverResponse.send(result);
     }
 }

@@ -1,0 +1,34 @@
+<component name="libraryTable">
+  <library name="helidon">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/opc/helidon-common-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-common-configurable-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-common-context-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-common-http-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-common-key-util-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-common-mapper-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-common-media-type-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-common-metrics-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-common-reactive-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-common-service-loader-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-config-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-media-common-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-tracing-config-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/helidon-webserver-2.0.0-M3.jar!/" />
+      <root url="jar://$USER_HOME$/opc/javax.annotation-api-1.3.2.jar!/" />
+      <root url="jar://$USER_HOME$/opc/netty-buffer-4.1.50.Final.jar!/" />
+      <root url="jar://$USER_HOME$/opc/netty-codec-4.1.50.Final.jar!/" />
+      <root url="jar://$USER_HOME$/opc/netty-codec-http-4.1.50.Final.jar!/" />
+      <root url="jar://$USER_HOME$/opc/netty-codec-http2-4.1.50.Final.jar!/" />
+      <root url="jar://$USER_HOME$/opc/netty-common-4.1.50.Final.jar!/" />
+      <root url="jar://$USER_HOME$/opc/netty-handler-4.1.50.Final.jar!/" />
+      <root url="jar://$USER_HOME$/opc/netty-transport-4.1.50.Final.jar!/" />
+      <root url="jar://$USER_HOME$/opc/netty-transport-native-unix-common-4.1.50.Final.jar!/" />
+      <root url="jar://$USER_HOME$/opc/opentracing-api-0.33.0.jar!/" />
+      <root url="jar://$USER_HOME$/opc/opentracing-noop-0.33.0.jar!/" />
+      <root url="jar://$USER_HOME$/opc/opentracing-util-0.33.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
